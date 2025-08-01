@@ -21,8 +21,6 @@ full = [
     "byteorder",
     "chrono",
     "memmap2",
-    "rand",
-    "rand0-7",
     "serde_json",
     "solana-signature",
     "ed25519-dalek",
@@ -119,6 +117,6 @@ thiserror = "1.0.65"
 
 [target.'cfg(target_arch = "wasm32")'.dependencies]
 getrandom = { version = "0.1", features = ["wasm-bindgen"] }
-js-sys = "=2.1.0"
-wasm-bindgen = "=2.1.0"
+js-sys = "0.3.72"
+wasm-bindgen = "0.2"
 
