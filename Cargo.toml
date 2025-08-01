@@ -28,7 +28,7 @@ full = [
     "libsecp256k1",
     "sha3",
     "digest",
-    "solana-pubkey/rand",
+    "solana-pubkey",
     "dep:solana-precompile-error",
     "dep:solana-transaction-error"
 ]
@@ -77,37 +77,36 @@ qualifier_attr = { version = "0.2.2", default-features = false, optional = true 
 serde = "1.0.213"
 serde_bytes = "0.11.15"
 serde_derive = "1.0.213"
-serde_json = { version = "1.0.132",optional = true }
-serde_with = { version = "3.11.0",features = ["macros"] }
+serde_json = { version = "1.0.132", optional = true }
+serde_with = { version = "3.11.0", features = ["macros"] }
 sha2 = "0.10.8"
-sha3 = { version = "0.10.8",optional = true }
+sha3 = { version = "0.10.8", optional = true }
 siphasher = "0.3.11"
-solana-account = { version = "=2.1.0",features = ["bincode"] }
+solana-account = { version = "=2.1.0", features = ["bincode"] }
 solana-bn254 = "=2.1.0"
 solana-decode-error = "=2.1.0"
 solana-derivation-path = "=2.1.0"
 solana-feature-set = "=2.1.0"
-solana-frozen-abi = { version = "=2.1.0",optional = true, features = [
+solana-frozen-abi = { version = "=2.1.0", optional = true, features = [
     "frozen-abi",
 ] }
-solana-frozen-abi-macro = { version = "=2.1.0",optional = true, features = [
+solana-frozen-abi-macro = { version = "=2.1.0", optional = true, features = [
     "frozen-abi",
 ] }
-solana-inflation = { version = "=2.1.0",features = ["serde"] }
+solana-inflation = { version = "=2.1.0", features = ["serde"] }
 solana-instruction = "=2.1.0"
 solana-native-token = "=2.1.0"
-solana-packet = { version = "=2.1.0",features = ["bincode", "serde"] }
+solana-packet = { version = "=2.1.0", features = ["bincode", "serde"] }
 solana-precompile-error = { version = "=2.1.0",optional = true }
 solana-program = "=2.1.0"
 solana-program-memory = "=2.1.0"
-solana-pubkey = { version = "=2.1.0",default-features = false, features = ["std"] }
+solana-pubkey = { version = "=2.1.0", default-features = false, features = ["std"] }
 solana-sanitize = "=2.1.0"
 solana-sdk-macro = "=2.1.0"
 solana-secp256k1-recover = "=2.1.0"
 solana-serde-varint = "=2.1.0"
 solana-short-vec = "=2.1.0"
 solana-signature = { version = "=2.1.0",features = [
-    "rand",
     "serde",
     "std",
     "verify",
