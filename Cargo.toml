@@ -28,7 +28,6 @@ full = [
     "libsecp256k1",
     "sha3",
     "digest",
-    "solana-pubkey",
     "dep:solana-precompile-error",
     "dep:solana-transaction-error"
 ]
