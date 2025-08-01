@@ -30,6 +30,8 @@
 //! [`clap`]: https://docs.rs/clap
 
 #![allow(incomplete_features)]
+#![allow(unexpected_cfgs)]
+#![allow(mismatched_lifetime_syntaxes)]
 #![cfg_attr(feature = "frozen-abi", feature(specialization))]
 
 // Allows macro expansion of `use ::solana_sdk::*` to work within this crate

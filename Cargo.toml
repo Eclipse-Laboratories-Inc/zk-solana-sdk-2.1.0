@@ -112,6 +112,7 @@ solana-signature = { version = "=2.1.0",features = [
 ], optional = true }
 solana-transaction-error = { version = "=2.1.0",features = ["serde"], optional = true }
 thiserror = "1.0.65"
+getrandom = { version = "0.1.16", default-features = false, features = ["dummy"] }
 
 [target.'cfg(target_arch = "wasm32")'.dependencies]
 getrandom = { version = "0.1", features = ["wasm-bindgen"] }

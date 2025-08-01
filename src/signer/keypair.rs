@@ -11,7 +11,6 @@ use {
     ed25519_dalek::Signer as DalekSigner,
     ed25519_dalek_bip32::Error as Bip32Error,
     hmac::Hmac,
-    rand0_7::{rngs::OsRng, CryptoRng, RngCore},
     solana_derivation_path::DerivationPath,
     std::{
         error,
@@ -29,18 +28,11 @@ impl Keypair {
     /// Can be used for generating a Keypair without a dependency on `rand` types
     pub const SECRET_KEY_LENGTH: usize = 32;
 
-    /// Constructs a new, random `Keypair` using a caller-provided RNG
-    pub fn generate<R>(csprng: &mut R) -> Self
-    where
-        R: CryptoRng + RngCore,
-    {
-        Self(ed25519_dalek::Keypair::generate(csprng))
-    }
-
     /// Constructs a new, random `Keypair` using `OsRng`
     pub fn new() -> Self {
-        let mut rng = OsRng;
-        Self::generate(&mut rng)
+        let mut sk_bytes = [0u8; Self::SECRET_KEY_LENGTH];
+        getrandom::getrandom(&mut sk_bytes).unwrap();
+        Self(ed25519_dalek::Keypair::from_bytes(&sk_bytes).unwrap())
     }
 
     /// Recovers a `Keypair` from a byte array

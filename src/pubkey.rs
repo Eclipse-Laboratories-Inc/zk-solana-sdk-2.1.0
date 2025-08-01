@@ -1,5 +1,3 @@
-#[cfg(feature = "full")]
-pub use solana_pubkey::new_rand;
 #[cfg(target_os = "solana")]
 pub use solana_pubkey::syscalls;
 pub use solana_pubkey::{
