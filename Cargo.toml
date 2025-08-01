@@ -3,12 +3,9 @@ name = "solana-sdk"
 description = "Solana SDK"
 documentation = "https://docs.rs/solana-sdk"
 readme = "README.md"
-version = { workspace = true }
-authors = { workspace = true }
-repository = { workspace = true }
-homepage = { workspace = true }
-license = { workspace = true }
-edition = { workspace = true }
+version = "2.1.0"
+rust-version = "1.88.0"
+edition = "2021"
 
 [features]
 # "program" feature is a legacy feature retained to support v1.3 and older
@@ -52,97 +49,76 @@ frozen-abi = [
 ]
 
 [dependencies]
-bincode = { workspace = true }
-bitflags = { workspace = true, features = ["serde"] }
-borsh = { workspace = true, optional = true }
-bs58 = { workspace = true }
-bytemuck = { workspace = true }
-bytemuck_derive = { workspace = true }
-byteorder = { workspace = true, optional = true }
-chrono = { workspace = true, features = ["alloc"], optional = true }
-curve25519-dalek = { workspace = true, optional = true }
-digest = { workspace = true, optional = true }
-ed25519-dalek = { workspace = true, optional = true }
-ed25519-dalek-bip32 = { workspace = true, optional = true }
-generic-array = { workspace = true, features = [
+bincode = "1.3.3"
+bitflags = { version = "2.6.0",features = ["serde"] }
+borsh = { version = "1.5.1", features = ["derive", "unstable__schema"] ,optional = true }
+bs58 = { version = "0.5.1", default-features = false }
+bytemuck = "1.19.0"
+bytemuck_derive = "1.8.0"
+byteorder = { version = "1.5.0",optional = true }
+chrono = { version = "0.4.38", default-features = false ,features = ["alloc"], optional = true }
+curve25519-dalek = { version = "4.1.3", features = ["digest", "rand_core"] ,optional = true }
+digest = { version = "0.10.7",optional = true }
+ed25519-dalek = { version = "=1.0.1",optional = true }
+ed25519-dalek-bip32 = { version = "0.2.0",optional = true }
+generic-array = { version = "0.14.7",features = [
     "serde",
     "more_lengths",
 ], optional = true }
-hmac = { workspace = true }
-itertools = { workspace = true }
-lazy_static = { workspace = true }
-libsecp256k1 = { workspace = true, optional = true, features = ["hmac"] }
-log = { workspace = true }
-memmap2 = { workspace = true, optional = true }
-num-derive = { workspace = true }
-num-traits = { workspace = true }
-num_enum = { workspace = true }
-pbkdf2 = { workspace = true }
-qualifier_attr = { workspace = true, optional = true }
-rand = { workspace = true, optional = true }
-rand0-7 = { package = "rand", version = "0.7", optional = true }
-serde = { workspace = true }
-serde_bytes = { workspace = true }
-serde_derive = { workspace = true }
-serde_json = { workspace = true, optional = true }
-serde_with = { workspace = true, features = ["macros"] }
-sha2 = { workspace = true }
-sha3 = { workspace = true, optional = true }
-siphasher = { workspace = true }
-solana-account = { workspace = true, features = ["bincode"] }
-solana-bn254 = { workspace = true }
-solana-decode-error = { workspace = true }
-solana-derivation-path = { workspace = true }
-solana-feature-set = { workspace = true }
-solana-frozen-abi = { workspace = true, optional = true, features = [
+hmac = "0.12.1"
+itertools = "0.12.1"
+lazy_static = "1.5.0"
+libsecp256k1 = { version = "0.6.0",optional = true, features = ["hmac"] }
+log = "0.4.22"
+memmap2 = { version = "0.5.10",optional = true }
+num-derive = "0.4"
+num-traits = "0.2"
+num_enum = "0.7.3"
+pbkdf2 = { version = "0.11.0", default-features = false }
+qualifier_attr = { version = "0.2.2", default-features = false, optional = true }
+serde = "1.0.213"
+serde_bytes = "0.11.15"
+serde_derive = "1.0.213"
+serde_json = { version = "1.0.132",optional = true }
+serde_with = { version = "3.11.0",features = ["macros"] }
+sha2 = "0.10.8"
+sha3 = { version = "0.10.8",optional = true }
+siphasher = "0.3.11"
+solana-account = { version = "=2.1.0",features = ["bincode"] }
+solana-bn254 = "=2.1.0"
+solana-decode-error = "=2.1.0"
+solana-derivation-path = "=2.1.0"
+solana-feature-set = "=2.1.0"
+solana-frozen-abi = { version = "=2.1.0",optional = true, features = [
     "frozen-abi",
 ] }
-solana-frozen-abi-macro = { workspace = true, optional = true, features = [
+solana-frozen-abi-macro = { version = "=2.1.0",optional = true, features = [
     "frozen-abi",
 ] }
-solana-inflation = { workspace = true, features = ["serde"] }
-solana-instruction = { workspace = true }
-solana-native-token = { workspace = true }
-solana-packet = { workspace = true, features = ["bincode", "serde"] }
-solana-precompile-error = { workspace = true, optional = true }
-solana-program = { workspace = true }
-solana-program-memory = { workspace = true }
-solana-pubkey = { workspace = true, default-features = false, features = ["std"] }
-solana-sanitize = { workspace = true }
-solana-sdk-macro = { workspace = true }
-solana-secp256k1-recover = { workspace = true }
-solana-serde-varint = { workspace = true }
-solana-short-vec = { workspace = true }
-solana-signature = { workspace = true, features = [
+solana-inflation = { version = "=2.1.0",features = ["serde"] }
+solana-instruction = "=2.1.0"
+solana-native-token = "=2.1.0"
+solana-packet = { version = "=2.1.0",features = ["bincode", "serde"] }
+solana-precompile-error = { version = "=2.1.0",optional = true }
+solana-program = "=2.1.0"
+solana-program-memory = "=2.1.0"
+solana-pubkey = { version = "=2.1.0",default-features = false, features = ["std"] }
+solana-sanitize = "=2.1.0"
+solana-sdk-macro = "=2.1.0"
+solana-secp256k1-recover = "=2.1.0"
+solana-serde-varint = "=2.1.0"
+solana-short-vec = "=2.1.0"
+solana-signature = { version = "=2.1.0",features = [
     "rand",
     "serde",
     "std",
     "verify",
 ], optional = true }
-solana-transaction-error = { workspace = true, features = ["serde"], optional = true }
-thiserror = { workspace = true }
+solana-transaction-error = { version = "=2.1.0",features = ["serde"], optional = true }
+thiserror = "1.0.65"
 
 [target.'cfg(target_arch = "wasm32")'.dependencies]
 getrandom = { version = "0.1", features = ["wasm-bindgen"] }
-js-sys = { workspace = true }
-wasm-bindgen = { workspace = true }
+js-sys = "=2.1.0"
+wasm-bindgen = "=2.1.0"
 
-[dev-dependencies]
-anyhow = { workspace = true }
-assert_matches = { workspace = true }
-curve25519-dalek = { workspace = true }
-hex = { workspace = true }
-solana-logger = { workspace = true }
-solana-program = { workspace = true, features = ["dev-context-only-utils"] }
-solana-sdk = { path = ".", features = ["dev-context-only-utils"] }
-static_assertions = { workspace = true }
-tiny-bip39 = { workspace = true }
-
-[package.metadata.docs.rs]
-targets = ["x86_64-unknown-linux-gnu"]
-
-[lib]
-crate-type = ["cdylib", "rlib"]
-
-[lints]
-workspace = true
