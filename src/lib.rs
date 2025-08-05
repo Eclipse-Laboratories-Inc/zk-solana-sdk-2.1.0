@@ -31,6 +31,7 @@
 
 #![allow(incomplete_features)]
 #![allow(unexpected_cfgs)]
+#![allow(unknown_lints)]
 #![allow(mismatched_lifetime_syntaxes)]
 #![cfg_attr(feature = "frozen-abi", feature(specialization))]
 
