@@ -13,8 +13,6 @@ use {
         pubkey::Pubkey,
         rent::Rent,
         shred_version::compute_shred_version,
-        signature::{Keypair, Signer},
-        system_program,
         timing::years_as_slots,
     },
     bincode::{deserialize, serialize},
@@ -29,7 +27,6 @@ use {
         io::Write,
         path::{Path, PathBuf},
         str::FromStr,
-        time::{SystemTime, UNIX_EPOCH},
     },
 };
 
@@ -118,28 +115,10 @@ pub struct GenesisConfig {
     pub cluster_type: ClusterType,
 }
 
-// useful for basic tests
-pub fn create_genesis_config(lamports: u64) -> (GenesisConfig, Keypair) {
-    let faucet_keypair = Keypair::new();
-    (
-        GenesisConfig::new(
-            &[(
-                faucet_keypair.pubkey(),
-                AccountSharedData::new(lamports, 0, &system_program::id()),
-            )],
-            &[],
-        ),
-        faucet_keypair,
-    )
-}
-
 impl Default for GenesisConfig {
     fn default() -> Self {
         Self {
-            creation_time: SystemTime::now()
-                .duration_since(UNIX_EPOCH)
-                .unwrap()
-                .as_secs() as UnixTimestamp,
+            creation_time: 0,
             accounts: BTreeMap::default(),
             native_instruction_processors: Vec::default(),
             rewards_pools: BTreeMap::default(),
